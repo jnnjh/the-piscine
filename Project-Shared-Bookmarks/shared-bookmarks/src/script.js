@@ -5,8 +5,8 @@
 // You can't open the index.html file using a file:// URL.
 
 import { getUserIds } from "./storage.js";
+import { add } from "./add-bookmark.js";
 
 window.onload = function () {
-  const users = getUserIds();
-  document.querySelector("body").innerText = `There are ${users.length} users`;
+  add();
 };
