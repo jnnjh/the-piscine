@@ -11,7 +11,7 @@ if (userSelect) {
     userSelect.addEventListener("change", (e) => {
         currentUser = e.target.value;
 
-        // optional but safer: reload bookmarks for that user
+        //reload bookmarks for that user
         bookmarks = getData(currentUser) || [];
     });
 }
