@@ -1,8 +1,20 @@
 import { getUserIds, getData, setData } from "./storage.js";
 
-const currentUser = "1"; //this one can be changed based on dropdown later on...
+let currentUser = "1"; //default user
 const form = document.getElementById("add-bookmark");
 let bookmarks = getData(currentUser) || [];
+
+
+const userSelect = document.getElementById("user-select");
+
+if (userSelect) {
+    userSelect.addEventListener("change", (e) => {
+        currentUser = e.target.value;
+
+        // optional but safer: reload bookmarks for that user
+        bookmarks = getData(currentUser) || [];
+    });
+}
 
 function add() {
     const addTitle = document.getElementById("bookmark-title");
@@ -23,11 +35,11 @@ function add() {
         }
     
     bookmarks.push(newBookmark);
-    console.log(bookmarks);
+    setData(currentUser, bookmarks);
 
-    titleVal = "";
-    descriptionVal = "";
-    linkVal = "";
+    addTitle.value = "";
+    addDescription.value = "";
+    addLink.value = "";
 
 }
 
