@@ -1,13 +1,26 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shared Bookmarks</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/style.css">
+        <title>Shared Bookmarks</title>
+        <script type="module" src="./src/add-bookmark.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <div id="form">
+            <form id="add-bookmark" >
+                <label for="bookmark-title">Bookmark Title:</label>
+                <input type="text" name="bookmark-title" id="bookmark-title">
+                <label for="bookmark-description">Bookmark Description:</label>
+                <input type="text" name="bookmark-description" id="bookmark-description">
+                <label for="bookmark-link">Bookmark Link:</label>
+                <input type="url" name="bookmark-link" id="bookmark-link">
+                <button type="submit" >Add Bookmark</button>
+            </form>
+        </div>
+        
+    </body>
 </html>
