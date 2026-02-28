@@ -1,8 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <script type="module" src="script.js"></script>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shared Bookmarks</title>
   </head>
+  
   <body>
+    <div id="app"></div>
+    <h1>Shared Bookmarks</h1>
+
+      <label for="userSelect">Select user:</label>
+      <select id="userSelect"></select>
+
+      <div id="bookmarkSection"></div>
+
+      <h2>Add bookmark</h2>
+      <form id="bookmarkForm">
+        <label>
+          URL
+          <input type="url" id="urlInput" required />
+        </label>
+
+        <label>
+          Title
+          <input type="text" id="titleInput" required />
+        </label>
+
+        <label>
+          Description
+          <textarea id="descInput" required></textarea>
+        </label>
+
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
