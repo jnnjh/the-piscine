@@ -1,16 +1,3 @@
-/*const userSelect = document.getElementById("userSelect");
-
-const users = getUserIds();
-
-users.forEach(userId => {
-  const option = document.createElement("option");
-  option.value = userId;
-  option.textContent = `User ${userId}`;
-  userSelect.appendChild(option);
-  
-});
-*/
-
 import { getData } from "./storage.js";
 import { attachBookmarkActions } from "./bookmark-actions.js";
 
@@ -18,37 +5,39 @@ export function renderBookmarks(userId) {
   const container = document.getElementById("bookmarkSection");
   container.innerHTML = "";
 
-  const bookmarks = getData(userId);
+  const bookmarks = getData(userId) || [];
 
-  if (!bookmarks || bookmarks.length === 0) {
+  if (!bookmarks.length) {
     container.innerHTML = "<p>This user has no bookmarks yet</p>";
     return;
   }
 
+   // Reverse chronological
   const sorted = [...bookmarks].sort(
     (a, b) => b.createdAt - a.createdAt
   );
 
-  sorted.forEach((bookmark, index) => {
+  sorted.forEach((bookmark) => {
     const div = document.createElement("div");
+    div.className = "bookmark";
+
+    const date = new Date(bookmark.createdAt);
+    const formattedDate = date.toLocaleString();
 
     div.innerHTML = `
-      <h3>
         <a href="${bookmark.url}" target="_blank">
           ${bookmark.title}
         </a>
-      </h3>
       <p>${bookmark.description}</p>
-      <small>${new Date(bookmark.createdAt).toLocaleString()}</small>
+      <small>Added: ${formattedDate}</small>
       <div>
-        <button data-copy="${index}">Copy URL</button>
-        <button data-like="${index}">❤️ ${bookmark.likes}</button>
-      </div>
-      <hr />
+        <button data-copy="${bookmark.id}">Copy URL</button>
+        <button data-like="${bookmark.id}">❤️ ${bookmark.likes}</button>
+        </div>
     `;
 
     container.appendChild(div);
   });
 
-  attachBookmarkActions(userId, sorted);
+  attachBookmarkActions(userId, renderBookmarks);
 }
