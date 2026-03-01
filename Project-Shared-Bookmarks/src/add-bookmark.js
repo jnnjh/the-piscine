@@ -13,6 +13,17 @@ export function initAddBookmarkForm(onUpdate) {
 
     const userId = getCurrentUser();
     const existing = getData(userId) || [];
+
+    const newBookmark = {
+      id: uuidv4(),
+      url,
+      title,
+      description,
+      createdAt: Date.now(),
+      likes: 0
+    };
+
+    console.log("New bookmark:", newBookmark);
   }
 )}
 /*let currentUser = "1"; //default user
