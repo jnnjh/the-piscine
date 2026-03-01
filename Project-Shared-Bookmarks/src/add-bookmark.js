@@ -10,6 +10,9 @@ export function initAddBookmarkForm(onUpdate) {
     const url = document.getElementById("urlInput").value;
     const title = document.getElementById("titleInput").value;
     const description = document.getElementById("descInput").value;
+
+    const userId = getCurrentUser();
+    const existing = getData(userId) || [];
   }
 )}
 /*let currentUser = "1"; //default user
