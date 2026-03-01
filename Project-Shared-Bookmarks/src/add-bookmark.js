@@ -23,7 +23,6 @@ export function initAddBookmarkForm(onUpdate) {
       likes: 0
     };
 
-    console.log("New bookmark:", newBookmark);
     const updated = [...existing, newBookmark];
     setData(userId, updated);
 
