@@ -32,6 +32,13 @@ describe("initAddBookmarkForm", () => {
         expect(() => initAddBookmarkForm(() => {})).not.toThrow();
     });
 
-    
+    it("calls getCurrentUser on submit", () => {
+        initAddBookmarkForm(() => {});
+
+        document.getElementById("bookmarkForm")
+            .dispatchEvent(new Event("submit", { bubbles: true }));
+
+        expect(getCurrentUser).toHaveBeenCalled();
+    });
 
 });
