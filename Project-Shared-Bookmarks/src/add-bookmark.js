@@ -6,8 +6,12 @@ export function initAddBookmarkForm(onUpdate) {
 
   form.addEventListener ("submit", (e) => {
     e.preventDefault();
+
+    const url = document.getElementById("urlInput").value;
+    const title = document.getElementById("titleInput").value;
+    const description = document.getElementById("descInput").value;
   }
-}
+)}
 /*let currentUser = "1"; //default user
 const form = document.getElementById("add-bookmark");
 let bookmarks = getData(currentUser) || [];
