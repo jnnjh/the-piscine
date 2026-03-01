@@ -66,3 +66,19 @@ it("calls onUpdate after saving", () => {
 
   expect(onUpdate).toHaveBeenCalledWith("user-1");
 });
+
+it("resets the form after submission", () => {
+  getCurrentUser.mockReturnValue("user-1");
+  getData.mockReturnValue([]);
+  uuidv4.mockReturnValue("mock-id");
+
+  initAddBookmarkForm(() => {});
+
+  const urlInput = document.getElementById("urlInput");
+  urlInput.value = "https://test.com";
+
+  const form = document.getElementById("bookmarkForm");
+  form.dispatchEvent(new Event("submit", { bubbles: true }));
+
+  expect(urlInput.value).toBe("");
+});
