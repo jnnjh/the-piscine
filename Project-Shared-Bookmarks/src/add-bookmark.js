@@ -26,6 +26,9 @@ export function initAddBookmarkForm(onUpdate) {
     console.log("New bookmark:", newBookmark);
     const updated = [...existing, newBookmark];
     setData(userId, updated);
+
+    form.reset();
+    onUpdate(userId);
   }
 )}
 /*let currentUser = "1"; //default user
