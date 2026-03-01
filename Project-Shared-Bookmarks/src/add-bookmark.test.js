@@ -61,7 +61,21 @@ describe("initAddBookmarkForm", () => {
         document.getElementById("bookmarkForm")
             .dispatchEvent(new Event("submit", { bubbles: true }));
 
-            expect(onUpdate).toHaveBeenCalledWith("user-1");
+        expect(onUpdate).toHaveBeenCalledWith("user-1");
         });
 
+    it("resets the form after submission", () => {
+        getCurrentUser.mockReturnValue("user-1");
+        getData.mockReturnValue([]);
+
+        initAddBookmarkForm(() => {});
+
+        const urlInput = document.getElementById("urlInput");
+        urlInput.value = "https://test.com";
+
+        document.getElementById("bookmarkForm")
+            .dispatchEvent(new Event("submit", { bubbles: true }));
+
+        expect(urlInput.value).toBe("");
+    });
 });
