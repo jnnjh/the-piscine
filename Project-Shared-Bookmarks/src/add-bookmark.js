@@ -1,7 +1,14 @@
 import { getCurrentUser } from "./user-selection.js";
 import { getData, setData } from "./storage.js";
 
-let currentUser = "1"; //default user
+export function initAddBookmarkForm(onUpdate) {
+  const form = document.getElementById("bookmarkForm");
+
+  form.addEventListener ("submit", (e) => {
+    e.preventDefault();
+  }
+}
+/*let currentUser = "1"; //default user
 const form = document.getElementById("add-bookmark");
 let bookmarks = getData(currentUser) || [];
 
@@ -48,4 +55,4 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     add();
 });
-
+*/
