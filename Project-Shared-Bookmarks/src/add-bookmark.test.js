@@ -41,4 +41,14 @@ describe("initAddBookmarkForm", () => {
         expect(getCurrentUser).toHaveBeenCalled();
     });
 
+    it("calls getData with current user id", () => {
+        getCurrentUser.mockReturnValue("user-1");
+
+        initAddBookmarkForm(() => {});
+        document.getElementById("bookmarkForm")
+            .dispatchEvent(new Event("submit", { bubbles: true }));
+
+        expect(getData).toHaveBeenCalledWith("user-1");
+    });
+
 });
