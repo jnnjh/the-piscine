@@ -3,20 +3,21 @@ import { attachBookmarkActions } from "./bookmark-actions.js";
 import * as storage from "./storage.js";
 
 describe("attachBookmarkActions", () => {
-  let bookmarks;
   let userId;
+  let mockUpdate;
 
   beforeEach(() => {
     document.body.innerHTML = `
-      <button data-copy="0">Copy</button>
-      <button data-like="0">Like</button>
+      <button data-copy="abc123">Copy</button>
+      <button data-like="abc123">Like</button>
     `;
 
-    bookmarks = [
-      { url: "https://example.com", likes: 0 }
-    ];
-
     userId = "1";
+    mockUpdate = vi.fn();
+
+    const bookmarks = [
+      { id: "abc123", url: "https://example.com", likes: 0 }
+    ];
 
     // mock storage
     vi.spyOn(storage, "getData").mockReturnValue([...bookmarks]);
@@ -32,20 +33,18 @@ describe("attachBookmarkActions", () => {
     global.location = { reload: vi.fn() };
   });
 
-  test("copy button calls navigator.clipboard.writeText with correct URL", () => {
-    attachBookmarkActions(userId, bookmarks);
+  test("copy button copies correct URL", () => {
+    attachBookmarkActions(userId, mockUpdate);
 
-    const copyBtn = document.querySelector("[data-copy]");
-    copyBtn.click();
+    document.querySelector("[data-copy]").click();
 
     expect(global.navigator.clipboard.writeText).toHaveBeenCalledWith("https://example.com");
   });
 
-  test("like button increments likes and calls setData and reload", () => {
-    attachBookmarkActions(userId, bookmarks);
+  test("like button increments likes and calls onUpdate", () => {
+    attachBookmarkActions(userId, mockUpdate);
 
-    const likeBtn = document.querySelector("[data-like]");
-    likeBtn.click();
+    document.querySelector("[data-like]").click();
 
     expect(storage.setData).toHaveBeenCalled();
 
@@ -54,6 +53,6 @@ describe("attachBookmarkActions", () => {
     expect(updated[0].likes).toBe(1);
 
     // check reload called
-    expect(global.location.reload).toHaveBeenCalled();
+    expect(mockUpdate).toHaveBeenCalledWith(userId);
   });
 });
