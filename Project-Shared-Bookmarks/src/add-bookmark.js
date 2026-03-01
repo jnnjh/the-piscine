@@ -1,4 +1,5 @@
-import { getUserIds, getData, setData } from "./storage.js";
+import { getCurrentUser } from "./user-selection.js";
+import { getData, setData } from "./storage.js";
 
 let currentUser = "1"; //default user
 const form = document.getElementById("add-bookmark");
