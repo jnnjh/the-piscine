@@ -6,6 +6,13 @@ vi.mock("./user-selection.js", () => ({
   getCurrentUser: vi.fn(),
 }));
 
+vi.mock("./storage.js", () => ({
+  getData: vi.fn(),
+  setData: vi.fn(),
+}));
+
+import { getData } from "./storage.js";
+
 import { getCurrentUser } from "./user-selection.js";
 
 describe("initAddBookmarkForm", () => {
@@ -31,4 +38,15 @@ it("calls getCurrentUser on submit", () => {
   form.dispatchEvent(new Event("submit", { bubbles: true }));
 
   expect(getCurrentUser).toHaveBeenCalled();
+});
+
+it("calls getData with current user id", () => {
+  getCurrentUser.mockReturnValue("user-1");
+
+  initAddBookmarkForm(() => {});
+
+  const form = document.getElementById("bookmarkForm");
+  form.dispatchEvent(new Event("submit", { bubbles: true }));
+
+  expect(getData).toHaveBeenCalledWith("user-1");
 });
