@@ -24,6 +24,8 @@ export function initAddBookmarkForm(onUpdate) {
     };
 
     console.log("New bookmark:", newBookmark);
+    const updated = [...existing, newBookmark];
+    setData(userId, updated);
   }
 )}
 /*let currentUser = "1"; //default user
