@@ -51,4 +51,17 @@ describe("initAddBookmarkForm", () => {
         expect(getData).toHaveBeenCalledWith("user-1");
     });
 
+    it("calls onUpdate after saving", () => {
+        getCurrentUser.mockReturnValue("user-1");
+        getData.mockReturnValue([]);
+
+        const onUpdate = vi.fn();
+        initAddBookmarkForm(onUpdate);
+
+        document.getElementById("bookmarkForm")
+            .dispatchEvent(new Event("submit", { bubbles: true }));
+
+            expect(onUpdate).toHaveBeenCalledWith("user-1");
+        });
+
 });
