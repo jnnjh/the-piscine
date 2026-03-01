@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { initAddBookmarkForm } from "./add-bookmark-form.js";
+import { initAddBookmarkForm } from "./add-bookmark.js";
 import { vi } from "vitest";
 
 vi.mock("./user-selection.js", () => ({
@@ -13,7 +13,9 @@ vi.mock("./storage.js", () => ({
   setData: vi.fn(),
 }));
 
-import { getData } from "./storage.js";
+import { getData, setData } from "./storage.js";
+
+global.uuidv4 = vi.fn();
 
 
 describe("initAddBookmarkForm", () => {
@@ -81,4 +83,32 @@ it("resets the form after submission", () => {
   form.dispatchEvent(new Event("submit", { bubbles: true }));
 
   expect(urlInput.value).toBe("");
+});
+
+it("adds new bookmark to storage", () => {
+  getCurrentUser.mockReturnValue("user-1");
+  getData.mockReturnValue([]);
+  uuidv4.mockReturnValue("mock-id");
+
+  initAddBookmarkForm(() => {});
+
+  document.getElementById("urlInput").value = "https://test.com";
+  document.getElementById("titleInput").value = "Test";
+  document.getElementById("descInput").value = "Desc";
+
+  const form = document.getElementById("bookmarkForm");
+  form.dispatchEvent(new Event("submit", { bubbles: true }));
+
+  expect(setData).toHaveBeenCalledWith(
+    "user-1",
+    expect.arrayContaining([
+      expect.objectContaining({
+        id: "mock-id",
+        url: "https://test.com",
+        title: "Test",
+        description: "Desc",
+        likes: 0,
+      }),
+    ])
+  );
 });
