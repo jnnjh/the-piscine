@@ -2,24 +2,22 @@ import { getData } from "./storage.js";
 import { attachBookmarkActions } from "./bookmark-actions.js";
 
 export function renderBookmarks(userId) {
-const container = document.getElementById("bookmarkSection");
-container.innerHTML = "";
+  const container = document.getElementById("bookmarkSection");
+  container.innerHTML = "";
 
 const bookmarks = getData(userId) || [];
 
 if (!bookmarks.length) {
-container.innerHTML = "<p>This user has no bookmarks yet</p>";
-return;
+  container.innerHTML = "<p>This user has no bookmarks yet</p>";
+  return;
 }
 
-// Reverse chronological
-const sorted = [...bookmarks].sort(
-(a, b) => b.createdAt - a.createdAt
-);
+// Reverse chronological order
+const sorted = [...bookmarks].sort((a, b) => b.createdAt - a.createdAt);
 
 sorted.forEach((bookmark) => {
-const div = document.createElement("div");
-div.className = "bookmark";
+  const div = document.createElement("div");
+  div.className = "bookmark";
 
 const date = new Date(bookmark.createdAt);
 const formattedDate = date.toLocaleString();
@@ -39,7 +37,11 @@ ${bookmark.title}
 container.appendChild(div) 
 });
 
-attachBookmarkActions(userId, renderBookmarks);
+attachBookmarkActions(userId, (updatedUserId) => {
+  const bookmarks = getData(updatedUserId) || [];
+  bookmarks.forEach(b => {
+    const likeBtn = document.querySelector(`[data-like="${b.id}"]`);
+    if (likeBtn) likeBtn.textContent = `❤️ ${b.likes}`;
+  });
+});
 }
-
-

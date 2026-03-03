@@ -28,7 +28,7 @@ export function attachBookmarkActions(userId, onUpdate) {
 
       setData(userId, bookmarks);
 
-      onUpdate(userId);
+      if (onUpdate) onUpdate(userId);
     });
   });
 }
