@@ -32,7 +32,7 @@ ${bookmark.title}
 <small>Added: ${formattedDate}</small>
 <div>
 <button data-copy="${bookmark.id}">Copy URL</button>
-<button data-like="${bookmark.id}">:heart: ${bookmark.likes}</button>
+<button data-like="${bookmark.id}">❤️ ${bookmark.likes}</button>
 </div>
 `;
 
