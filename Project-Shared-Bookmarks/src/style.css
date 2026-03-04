@@ -116,6 +116,12 @@ button:hover {
   transition: all 0.2s ease;
 }
 
+#bookmarkForm input:hover,
+#bookmarkForm textarea:hover,
+#bookmarkForm select:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 #bookmarkForm input:focus,
 #bookmarkForm textarea:focus,
 #bookmarkForm select:focus {
