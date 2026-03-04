@@ -31,6 +31,10 @@ button {
   background-color: #fff;
 }
 
+.bookmark:hover {
+  background-color:
+}
+
 .bookmark div {
   display: flex;
   gap: 12px;
