@@ -2,6 +2,13 @@ main {
   padding: 24px;
 }
 
+body {
+  background-color: #f0f4f8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
 button,
 a {
   min-height: 48px;
