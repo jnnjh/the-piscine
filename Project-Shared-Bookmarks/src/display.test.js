@@ -81,4 +81,22 @@ describe("renderBookmarks", () => {
 
         expect(firstBookmark.textContent.trim()).toBe("New");
     });
+
+    it("calls attachBookmarkActions after rendering", () => {
+        getData.mockReturnValue([
+            {
+                id: "1",
+                url: "https://example.com",
+                title: "Example",
+                description: "",
+                createdAt: Date.now(),
+                likes: 0,
+            },
+    ]);
+
+        renderBookmarks("user-1");
+
+        expect(attachBookmarkActions)
+            .toHaveBeenCalledWith("user-1", renderBookmarks);
+    });
 });
