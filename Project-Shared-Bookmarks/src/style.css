@@ -71,6 +71,13 @@ button {
   border-radius: 6px; 
 }
 
+#bookmarkForm input:focus,
+#bookmarkForm textarea:focus,
+#bookmarkForm select:focus {
+  outline: none;                  /* ← ADDED */
+  border-color: #999;             /* ← ADDED */
+}
+
 #bookmarkForm textarea {
   min-height: 100px;
   resize: vertical;
