@@ -58,6 +58,7 @@ button:hover {
   flex-direction: column;
   gap: 16px;
   max-width: 500px;
+  margin-bottom: 32px;
 }
 
 #bookmarkForm label {
