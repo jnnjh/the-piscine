@@ -51,8 +51,17 @@ button:hover {
 
 .bookmark button {
   min-height: 32px;
-  padding: 4px 8px;
+  padding: 6px 12px;
   font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  background: #e0e7ff;
+  color: #4f46e5;
+  transition: background 0.2s ease;
+}
+
+.bookmark button:hover {
+  background: #c7d2fe;
 }
 
 .bookmark {
