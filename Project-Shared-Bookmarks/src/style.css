@@ -95,7 +95,7 @@ button:hover {
 #bookmarkForm button {
   align-self: flex-start;
   min-height: 48px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   cursor: pointer;
 }
 
