@@ -74,8 +74,8 @@ button {
 #bookmarkForm input:focus,
 #bookmarkForm textarea:focus,
 #bookmarkForm select:focus {
-  outline: none;                  /* ← ADDED */
-  border-color: #999;             /* ← ADDED */
+  outline: none;
+  border-color: #999;
 }
 
 #bookmarkForm textarea {
@@ -88,6 +88,10 @@ button {
   min-height: 48px;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+#userSelect {
+  min-width: 180px;
 }
 
 button,
