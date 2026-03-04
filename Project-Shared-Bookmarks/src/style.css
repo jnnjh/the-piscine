@@ -39,6 +39,12 @@ button:hover {
   margin: 12px 0;
 }
 
+.bookmark button {
+  min-height: 32px;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
 .bookmark {
   margin-bottom: 24px;
   padding: 16px;
