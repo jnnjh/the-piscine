@@ -91,6 +91,10 @@ button:hover {
   gap: 16px;
   max-width: 500px;
   margin-bottom: 32px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 #bookmarkForm label {
