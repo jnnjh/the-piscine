@@ -52,4 +52,33 @@ describe("renderBookmarks", () => {
         expect(container.innerHTML).toContain("Test description");
         expect(container.innerHTML).toContain("❤️ 3");
     });
+
+    it("renders bookmarks in reverse chronological order", () => {
+        getData.mockReturnValue([
+            {
+                id: "1",
+                url: "a",
+                title: "Old",
+                description: "",
+                createdAt: 1000,
+                likes: 0,
+            },
+            {
+                id: "2",
+                url: "b",
+                title: "New",
+                description: "",
+                createdAt: 2000,
+                likes: 0,
+            },
+        ]);
+
+        renderBookmarks("user-1");
+
+        const container = document.getElementById("bookmarkSection");
+
+        const firstBookmark = container.querySelector(".bookmark a");
+
+        expect(firstBookmark.textContent.trim()).toBe("New");
+    });
 });
