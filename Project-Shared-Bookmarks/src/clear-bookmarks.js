@@ -1,3 +1,7 @@
+// TEMPORARY DEMO SCRIPT
+// Do not merge into dev-main
+
+
 // src/clear-bookmarks.js
 import * as storage from "./storage.js";
 

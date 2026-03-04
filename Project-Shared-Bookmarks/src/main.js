@@ -1,3 +1,6 @@
+// TEMPORARY DEMO SCRIPT
+// Do not merge into dev-main
+
 import { initUserSelection } from "./user-selection.js";
 import { initAddBookmarkForm } from "./add-bookmark.js";
 import { renderBookmarks } from "./display.js";
