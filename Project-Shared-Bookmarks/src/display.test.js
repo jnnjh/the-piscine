@@ -20,4 +20,16 @@ describe("renderBookmarks", () => {
 
         vi.clearAllMocks();
     });
+
+    it("renders empty message when user has no bookmarks", () => {
+        getData.mockReturnValue([]);
+
+        renderBookmarks("user-1");
+
+        const container = document.getElementById("bookmarkSection");
+
+        expect(container.innerHTML)
+            .toContain("This user has no bookmarks yet");
+    });
+
 });
