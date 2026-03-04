@@ -36,8 +36,8 @@ button:hover {
 .bookmark a {
   min-height: unset;
   display: inline-block;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: inherit;
 }
 
