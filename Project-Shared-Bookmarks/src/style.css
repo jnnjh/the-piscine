@@ -137,6 +137,18 @@ button:hover {
 
 #userSelect {
   min-width: 180px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+}
+
+#userSelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.5);
 }
 
 button,
