@@ -35,6 +35,10 @@ button:hover {
   font-size: 13px;
 }
 
+.bookmark p {
+  margin: 12px 0;
+}
+
 .bookmark {
   margin-bottom: 24px;
   padding: 16px;
