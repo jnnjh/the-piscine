@@ -32,4 +32,24 @@ describe("renderBookmarks", () => {
             .toContain("This user has no bookmarks yet");
     });
 
+    it("renders bookmarks into the container", () => {
+        getData.mockReturnValue([
+            {
+                id: "1",
+                url: "https://example.com",
+                title: "Example",
+                description: "Test description",
+                createdAt: Date.now(),
+                likes: 3,
+            },
+        ]);
+
+        renderBookmarks("user-1");
+
+        const container = document.getElementById("bookmarkSection");
+
+        expect(container.innerHTML).toContain("Example");
+        expect(container.innerHTML).toContain("Test description");
+        expect(container.innerHTML).toContain("❤️ 3");
+    });
 });
