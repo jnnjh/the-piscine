@@ -18,6 +18,9 @@ button {
 .bookmark a {
   padding: 12px 0;
   display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  color: inherit;
 }
 
 .bookmark {
