@@ -23,6 +23,11 @@ button {
   color: inherit;
 }
 
+.bookmark small {
+  color: #777;
+  font-size: 13px;
+}
+
 .bookmark {
   margin-bottom: 24px;
   padding: 16px;
