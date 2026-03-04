@@ -89,6 +89,7 @@ button:hover {
 #bookmarkForm textarea {
   min-height: 100px;
   resize: vertical;
+  height: auto;
 }
 
 #bookmarkForm button {
@@ -107,8 +108,4 @@ select,
 input,
 textarea {
   padding: 8px;
-}
-
-textarea {
-  height: 48px;
 }
