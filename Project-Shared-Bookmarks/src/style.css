@@ -1,22 +1,22 @@
-main {
-  padding: 32px;
-  max-width: 800px;             /* limit width so it doesn’t span whole page */
-  width: 100%;                  /* allow it to shrink on smaller screens */
-  background: #fff;             /* optional: makes it look like a card */
-  border-radius: 12px;          /* optional: rounded corners */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+body {
+    background-color: #f0f4f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #1f2937;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 100vh; 
+    padding: 20px;  
 }
 
-body {
-  background-color: #f0f4f8;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #1f2937;
-  line-height: 1.6;
-  display: flex;                /* use flex layout */
-  justify-content: center;      /* horizontal centering */
-  align-items: flex-start;      /* vertical alignment (top of screen) */
-  min-height: 100vh;            /* full viewport height */
-  padding: 20px;  
+main {
+    padding: 32px;
+    max-width: 800px; 
+    width: 100%;
+    background: #fff; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 button,
