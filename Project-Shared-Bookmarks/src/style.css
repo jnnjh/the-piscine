@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start; 
-    min-height: 100vh; 
+    min-height: 90vh; 
     padding: 20px;  
 }
 
@@ -225,4 +225,11 @@ textarea {
 
 .bookmark button[data-delete]:hover {
   background: #fecaca;
+}
+
+#bookmarkSection {
+  max-height: 600px;       /* or whatever height fits your card */
+  overflow-y: auto;        /* vertical scroll only */
+  margin-bottom: 16px;     /* some spacing from other elements */
+  padding-right: 8px;      /* optional: prevent scrollbar overlapping content */
 }
