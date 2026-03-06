@@ -21,3 +21,9 @@ openBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("show");
 });
+
+modal.addEventListener("click", (e) => {
+  if (!e.target.closest(".modal-content")) {
+    modal.classList.remove("show");
+  }
+});
