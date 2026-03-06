@@ -154,7 +154,7 @@ button:hover {
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   transition: all 0.2s ease;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 
 #userSelect:focus {
@@ -195,4 +195,9 @@ textarea {
 
 #modal.show {
   display: flex;
+}
+
+#openModalBtn {
+  display: block;
+  margin-bottom: 10px;
 }
