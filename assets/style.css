@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #1f2937;
@@ -5,12 +9,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start; 
-    min-height: 90vh; 
+    min-height: 100vh;
     padding: 20px;  
-    background-image: url('background-img-pastel.png');
+    background-image: url('background-img-pastel1.webp');
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
+    margin: 0;
 }
 
 main {
@@ -20,6 +25,7 @@ main {
     background: #fff; 
     border-radius: 12px; 
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin: 0 auto;
 }
 
 button,
@@ -72,6 +78,7 @@ button:hover {
   background: #e0e7ff;
   color: #4f46e5;
   transition: background 0.2s ease;
+  min-width: 90px;
 }
 
 .bookmark button:hover {
