@@ -31,4 +31,16 @@ export function attachBookmarkActions(userId, onUpdate) {
       onUpdate(userId);
     });
   });
+
+  document.querySelectorAll("[data-delete]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      console.log("Deleting bookmark:", btn.dataset.delete);
+      const id = btn.dataset.delete;
+      const bookmarks = getData(userId) || [];
+      const updated = bookmarks.filter(b => b.id !== id);
+      setData(userId, updated);
+
+      onUpdate(userId);
+    });
+  });
 }

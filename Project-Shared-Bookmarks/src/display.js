@@ -24,16 +24,16 @@ div.className = "bookmark";
 const date = new Date(bookmark.createdAt);
 const formattedDate = date.toLocaleString();
 
+
+console.log("Bookmark ID:", bookmark.id);
 div.innerHTML = `
-<a href="${bookmark.url}" target="_blank">
-${bookmark.title}
-</a>
+<a href="${bookmark.url}" target="_blank">${bookmark.title}</a>
 <p>${bookmark.description}</p>
 <small>Added: ${formattedDate}</small>
 <div>
-<button data-copy="${bookmark.id}">Copy URL</button>
-<button data-like="${bookmark.id}">❤️ ${bookmark.likes}</button>
-<button data-delete="${bookmark.id}">🗑 Delete</button>
+  <button data-copy="${bookmark.id}">Copy URL</button>
+  <button data-like="${bookmark.id}">❤️ ${bookmark.likes}</button>
+  <button data-delete="${bookmark.id}">🗑 Delete</button>
 </div>
 `;
 
