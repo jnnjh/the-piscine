@@ -32,7 +32,7 @@ export function attachBookmarkActions(userId, onUpdate) {
 
       setData(userId, bookmarks);
 
-      onUpdate(userId);
+      btn.textContent = `❤️ ${bookmark.likes}`;
     });
   });
 
