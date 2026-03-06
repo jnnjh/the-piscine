@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shared Bookmarks</title>
+        <link rel="stylesheet" href="./assets/style.css">
+    </head>
+    <body>
+        <main>
+            <div id="app"></div>
+            <h1>Shared Bookmarks</h1>
+            <label for="userSelect">Select user:</label>
+            <select id="userSelect"></select>
+            <button id="openModalBtn">Add Bookmark</button>
+            <div id="bookmarkSection"></div>
+
+            <div id="modal" class="hidden">
+                <div class="modal-content">
+                    <h2>Add bookmark</h2>
+                    <form id="bookmarkForm">
+                        <label>
+                        URL
+                        <input type="url" id="urlInput" required />
+                        </label>
+
+                        <label>
+                        Title
+                        <input type="text" id="titleInput" required />
+                        </label>
+
+                        <label>
+                        Description
+                        <textarea id="descInput" required></textarea>
+                        </label>
+
+                        <button type="submit">Add</button>
+                    </form>
+                    <button id="closeModalBtn" type="button">Cancel</button>
+                </div>
+            </div>
+        </main>
+        <script type="module" src="./src/main.js"></script>
+    </body>
+</html>

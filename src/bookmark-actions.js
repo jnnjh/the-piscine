@@ -12,6 +12,10 @@ export function attachBookmarkActions(userId, onUpdate) {
       if (!bookmark) return;
 
       navigator.clipboard.writeText(bookmark.url);
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy URL";
+      }, 1000);
     });
   });
 
@@ -27,6 +31,19 @@ export function attachBookmarkActions(userId, onUpdate) {
       bookmark.likes += 1;
 
       setData(userId, bookmarks);
+
+      btn.textContent = `❤️ ${bookmark.likes}`;
+    });
+  });
+
+  document.querySelectorAll("[data-delete]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (!confirm("Delete this bookmark?")) return;
+
+      const id = btn.dataset.delete;
+      const bookmarks = getData(userId) || [];
+      const updated = bookmarks.filter(b => b.id !== id);
+      setData(userId, updated);
 
       onUpdate(userId);
     });
