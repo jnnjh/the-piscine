@@ -34,7 +34,8 @@ export function attachBookmarkActions(userId, onUpdate) {
 
   document.querySelectorAll("[data-delete]").forEach(btn => {
     btn.addEventListener("click", () => {
-      console.log("Deleting bookmark:", btn.dataset.delete);
+      if (!confirm("Delete this bookmark?")) return;
+
       const id = btn.dataset.delete;
       const bookmarks = getData(userId) || [];
       const updated = bookmarks.filter(b => b.id !== id);
