@@ -33,6 +33,7 @@ ${bookmark.title}
 <div>
 <button data-copy="${bookmark.id}">Copy URL</button>
 <button data-like="${bookmark.id}">❤️ ${bookmark.likes}</button>
+<button data-delete="${bookmark.id}">🗑 Delete</button>
 </div>
 `;
 
