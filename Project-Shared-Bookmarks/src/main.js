@@ -27,3 +27,9 @@ modal.addEventListener("click", (e) => {
     modal.classList.remove("show");
   }
 });
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    modal.classList.remove("show");
+  }
+});

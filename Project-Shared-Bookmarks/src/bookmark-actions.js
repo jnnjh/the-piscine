@@ -12,6 +12,10 @@ export function attachBookmarkActions(userId, onUpdate) {
       if (!bookmark) return;
 
       navigator.clipboard.writeText(bookmark.url);
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy URL";
+      }, 1000);
     });
   });
 
