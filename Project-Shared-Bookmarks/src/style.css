@@ -201,3 +201,18 @@ textarea {
   display: block;
   margin-bottom: 10px;
 }
+
+.bookmark button[data-delete] {
+  min-height: 32px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  background: #fee2e2;
+  color: #b91c1c;
+  transition: background 0.2s ease;
+}
+
+.bookmark button[data-delete]:hover {
+  background: #fecaca;
+}
