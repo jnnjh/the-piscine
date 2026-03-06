@@ -39,6 +39,7 @@ export function initAddBookmarkForm(onUpdate) {
     form.reset();
     onUpdate(userId);
 
-    document.getElementById("modal").classList.remove("show");
+    const modal = document.getElementById("modal");
+    modal?.classList.remove("show");
   }
 )}

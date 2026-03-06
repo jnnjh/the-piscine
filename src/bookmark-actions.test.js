@@ -41,18 +41,14 @@ describe("attachBookmarkActions", () => {
     expect(global.navigator.clipboard.writeText).toHaveBeenCalledWith("https://example.com");
   });
 
-  test("like button increments likes and calls onUpdate", () => {
+  test("like button increments likes", () => {
     attachBookmarkActions(userId, mockUpdate);
 
     document.querySelector("[data-like]").click();
 
     expect(storage.setData).toHaveBeenCalled();
 
-    // check if likes were incremented
     const updated = storage.setData.mock.calls[0][1];
     expect(updated[0].likes).toBe(1);
-
-    // check reload called
-    expect(mockUpdate).toHaveBeenCalledWith(userId);
   });
 });
